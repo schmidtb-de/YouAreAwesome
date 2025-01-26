@@ -44,22 +44,9 @@ struct ContentView: View {
                                 "You are incredible!",
                                 "Never give up!"]
                 
-                message = messages[messageNumber]
+                message = messages[Int.random(in: 0..<messages.count)]
                 
-                messageNumber += 1
-                
-                if messageNumber == messages.count {
-                    messageNumber = 0
-                }
-                
-                
-                //TODO: - Update the imageName variable -
-                imageName = "image\(imageNumber)"
-                imageNumber += 1
-                
-                if imageNumber > 9 {
-                    imageNumber = 0
-                }
+                imageName = "image\(Int.random(in: 0..<10))"
             }
             .font(.title2)
             .buttonStyle(.borderedProminent)
