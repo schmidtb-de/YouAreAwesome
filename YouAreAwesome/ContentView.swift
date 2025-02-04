@@ -49,7 +49,7 @@ struct ContentView: View {
                     .labelsHidden()
                     .onChange(of: soundIsOn) {
                         if audioPlayer != nil && audioPlayer.isPlaying {
-                                audioPlayer.stop()
+                            audioPlayer.stop()
                         }
                     }
                 Spacer()
@@ -78,6 +78,7 @@ struct ContentView: View {
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
             }
+            .tint(.accentColor)
             
         }
         
@@ -86,7 +87,7 @@ struct ContentView: View {
     
     func playSound(soundName: String) {
         if audioPlayer != nil && audioPlayer.isPlaying {
-                audioPlayer.stop()
+            audioPlayer.stop()
         }
         guard let soundFile = NSDataAsset(name: soundName) else {
             print("🤬 Could not find file named \(soundName)")
@@ -109,6 +110,11 @@ struct ContentView: View {
     }
 }
 
-#Preview {
+#Preview("Light Mode") {
     ContentView()
+        .preferredColorScheme(.light)
+}
+#Preview("Dark Mode") {
+    ContentView()
+        .preferredColorScheme(.dark)
 }
